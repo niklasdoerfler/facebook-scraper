@@ -1,5 +1,7 @@
 import itertools
 import logging
+import random
+import time
 from urllib.parse import urljoin
 import warnings
 import re
@@ -669,6 +671,10 @@ class FacebookScraper:
                     raise exceptions.LoginRequired(
                         "A login (cookies) is required to see this page"
                     )
+
+            randwait = random.randint(5, 20)
+            logger.info("Waiting %d sec for safety...", randwait)
+            time.sleep(randwait)
             return response
         except RequestException as ex:
             logger.exception("Exception while requesting URL: %s\nException: %r", url, ex)
