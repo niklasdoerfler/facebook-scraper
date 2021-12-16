@@ -56,7 +56,7 @@ def generic_iter_pages(
         if request_url_callback:
             request_url_callback(next_url)
 
-        RETRY_LIMIT = 6
+        RETRY_LIMIT = 100
         for retry in range(1, RETRY_LIMIT + 1):
             try:
                 logger.debug("Requesting page from: %s", next_url)
