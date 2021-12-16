@@ -48,7 +48,7 @@ class FacebookScraper:
             requests_kwargs = {}
 
         self.session = session
-        requests_kwargs["params"] = {"locale": "en_US"}
+        requests_kwargs["params"] = {"locale": "en_US", "max_retries": 20}
         self.requests_kwargs = requests_kwargs
 
     def set_user_agent(self, user_agent):
